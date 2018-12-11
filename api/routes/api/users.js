@@ -81,4 +81,10 @@ router.get('/current', auth.required, (req, res, next) => {
         });
 });
 
+// logout router
+router.get('/logout', auth.optional, (req, res, next) => {
+    req.logout();
+    res.json({success: true});
+});
+
 module.exports = router;

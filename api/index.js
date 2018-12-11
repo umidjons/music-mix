@@ -26,10 +26,6 @@ app.use(session({
     saveUninitialized: false
 }));
 
-if (!isProduction) {
-    app.use(errorHandler());
-}
-
 mongoose.connect('mongodb://localhost:27018/music-mix', {useNewUrlParser: true});
 mongoose.set('debug', true);
 
@@ -39,7 +35,7 @@ require('./config/passport');
 app.use(require('./routes'));
 
 if (!isProduction) {
-    app.use((err, req, res) => {
+    app.use((err, req, res, next) => {
         res.status(err.status || 500);
         res.json({
             errors: {
@@ -50,7 +46,7 @@ if (!isProduction) {
     });
 }
 
-app.use((err, req, res) => {
+app.use((err, req, res, next) => {
     res.status(err.status || 500);
     res.json({
         errors: {
@@ -59,6 +55,12 @@ app.use((err, req, res) => {
         }
     });
 });
+
+/*
+if (!isProduction) {
+    app.use(errorHandler());
+}
+*/
 
 app.listen(PORT, () => {
     console.log(`Server running on http://localhost:${PORT}`);
