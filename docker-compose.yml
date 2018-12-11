@@ -1,0 +1,9 @@
+
+db:
+  image: mongo
+  container_name: music-mix-db
+  ports:
+    - "127.0.0.1:27018:27017"
+  volumes:
+    - /media/umidjons/MICRO_DATA/music-mix/data:/data/db
+  user: "1000"
