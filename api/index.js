@@ -30,6 +30,7 @@ mongoose.connect('mongodb://localhost:27018/music-mix', {useNewUrlParser: true})
 mongoose.set('debug', true);
 
 require('./models/Users');
+require('./models/Medias');
 require('./config/passport');
 
 app.use(require('./routes'));

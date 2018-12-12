@@ -6,7 +6,7 @@ const config = require('../config/general');
 const {Schema} = mongoose;
 
 const UsersSchema = new Schema({
-    email: {type: 'String', unique: true},
+    email: {type: String, unique: true},
     hash: String,
     salt: String
 });
