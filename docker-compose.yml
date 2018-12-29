@@ -1,29 +1,29 @@
 version: "3"
 
 services:
-  api:
-    image: "node:10"
-    container_name: api
-    depends_on:
-      - db
-    env_file: .env
-    working_dir: /api
-    environment:
-      - NODE_ENV=production
-    volumes:
-      - ./api:/api
-    ports:
-      - "${LOCAL_HOST}:${PORT}:${PORT}"
-    networks:
-      - mix
-    command: "npm start"
+#  api:
+#    image: "node:10"
+#    container_name: api
+#    depends_on:
+#      - db
+#    env_file: .env
+#    working_dir: /api
+#    environment:
+#      - NODE_ENV=production
+#    volumes:
+#      - ./api:/api
+#    ports:
+#      - "${LOCAL_HOST}:${PORT}:${PORT}"
+#    networks:
+#      - mix
+#    command: "npm start"
 
   db:
     image: mongo
     container_name: db 
     env_file: .env
     ports:
-      - "${LOCAL_HOST}:27018:${DB_PORT}"
+      - "27018:27017"
     networks:
       - mix
     volumes:

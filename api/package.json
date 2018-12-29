@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "DEBUG=app:* node index.js",
-    "dev": "nodemon index.js",
+    "dev": "DEBUG=app:* nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Umidjons <almatov.us@gmail.com>",
@@ -14,6 +14,7 @@
     "body-parser": "^1.18.3",
     "cors": "^2.8.5",
     "debug": "^4.1.0",
+    "dotenv": "^6.2.0",
     "errorhandler": "^1.5.0",
     "express": "^4.16.4",
     "express-jwt": "^5.3.1",
